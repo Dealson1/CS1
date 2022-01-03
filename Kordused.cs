@@ -18,10 +18,19 @@ namespace CS1
         public static int[] ArrayCreate(int A)//A это размер масива
         {
             int[] array = new int[A];
+            int arv;
             for (int i = 0; i < A; i++)
             {
-                array[i] = int.Parse(Console.ReadLine());
-                //Console.Write("{0,3}",array[i]);
+                try
+                {
+                    Console.WriteLine("Введите число");
+                    arv = int.Parse(Console.ReadLine());
+                    array[i] = arv;
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Думай лучше.");
+                }
             }
             return array;
         }
@@ -68,28 +77,37 @@ namespace CS1
             Console.WriteLine();
 
             Random rnd = new Random();
-            int x = rnd.Next(101);
-            int t = 1;
+            int x = rnd.Next(100);
+            int count = 1;
             Console.WriteLine("Попробуйте угадать число от 0 до 100 за 5 попыток.");
-            while (t <= 5)
+            while (count <= 5)
             {
-                int num = int.Parse(Console.ReadLine());
-                if (num < x)
+                int k = int.Parse(Console.ReadLine());
+                if (x == k)
                 {
-                    Console.WriteLine("Заданное число меньше.");
-                    t++;
-                }
-                else if (num > x)
-                {
-                    Console.WriteLine("Заданное число больше.");
-                    t++;
-                }
-                else if (num == x)
-                {
-                    Console.WriteLine("Верно, это число {0}.", x);
+                    Console.WriteLine("Да! Компьютер загадал число " + k + "!");
                     break;
                 }
+                else
+                {
+                    count++;
+                    if (count == 6)
+                    {
+                        Console.WriteLine("Увы, вы не отгодали загаданное число. Это было число " + x + "!");
+                        break;
+                    }
+                    if (k < x)
+                    {
+                        Console.WriteLine("Загаданное число больше.");
+                    }
+                    else if (k > x)
+                    {
+                        Console.WriteLine("Загаданное число меньше.");
+                    }
+                    
+                }
             }
+            Console.ReadLine();
 
             string[] abc = new string[5] { "A", "B", "C", "D", "E" };
 
