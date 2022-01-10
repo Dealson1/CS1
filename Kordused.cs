@@ -15,7 +15,7 @@ namespace CS1
             return A;
         }
 
-        public static int[] ArrayCreate(int A)//A это размер масива
+        public static int[] ArrayCreate(int A)
         {
             int[] array = new int[A];
             int arv;
@@ -35,11 +35,26 @@ namespace CS1
             return array;
         }
 
+        static public int[,] korr = new int[10, 10];
+        static public void Korrutistabel()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    /*Console.Write("{0,4}", i*j);*/
+                    korr[i, j] = (i+1) * (j+1);
+                    Console.Write("{0,4}", korr[i, j]);
+                }
+                Console.WriteLine();
+            }
+        }
 
         static void Main(string[] args)
         {
+            Korrutistabel();
+
             Console.OutputEncoding = System.Text.Encoding.UTF8;
-            //int size = ArraySize(1, 20);
             Console.WriteLine("Напишите размер массива:");
             int size = int.Parse(Console.ReadLine());
             int[] arr = new int[size];
@@ -143,7 +158,7 @@ namespace CS1
 
 
 
-            Console.ReadLine();
+            Console.ReadKey();
         }
     }
 }

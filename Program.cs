@@ -11,6 +11,20 @@ namespace CS1
         static void Main(string[] args)
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
+
+            Console.WriteLine("Введите первый символ:");
+            float a = float.Parse(Console.ReadLine());
+            Console.WriteLine("Введите знак действия:");
+            char oper = char.Parse(Console.ReadLine());
+            Console.WriteLine("Введите второй символ:");
+            float b = float.Parse(Console.ReadLine());
+
+            Alamprogramm.CalcMur(a, b, oper);
+            Console.WriteLine();
+
+            Console.WriteLine(Alamprogramm.Korruta(4, 5));
+            Console.WriteLine(Alamprogramm.Keskmine(4, 5));
+
             Console.WriteLine("Welcome");
             Console.WriteLine("Как тебя зовут?");
             string name = Console.ReadLine();
@@ -50,6 +64,8 @@ namespace CS1
             /*int arv1 = int.Parse(Console.ReadLine());
             int arv2 = int.Parse(Console.ReadLine());
             Console.WriteLine("Arvude {0} ja {1} korrutis võrdub {2}", arv1, arv2, arv1 * arv2);*/
+
+            /*char sym = Console.ReadKey().KeyChar; - Моментальный ввод символа (Не требует Enter)*/
         }
     }
 }
